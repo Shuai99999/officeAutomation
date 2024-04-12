@@ -1,4 +1,4 @@
 cd /root/python/officeAutomation
-git pull
-/usr/bin/python3 /root/python/officeAutomation/zentao/pass_DBpriv.py
+/usr/local/git/bin/git pull
+# /usr/bin/python3 /root/python/officeAutomation/zentao/pyZentao.py
 # 1
