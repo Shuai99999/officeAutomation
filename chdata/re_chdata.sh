@@ -1,1 +1,1 @@
-/usr/bin/python3 /root/python/chdata/re_chdata.py $1
+/usr/bin/python3 /root/python/officeAutomation/chdata/re_chdata.py $1

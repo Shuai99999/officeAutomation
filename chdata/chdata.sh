@@ -1,1 +1,1 @@
-/usr/bin/python3 /root/python/chdata/chdata.py >> /root/python/chdata/chdata.log
+/usr/bin/python3 /root/python/officeAutomation/chdata/chdata.py >> /root/python/officeAutomation/chdata/chdata.log
