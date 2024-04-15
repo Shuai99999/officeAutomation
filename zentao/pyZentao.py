@@ -233,8 +233,13 @@ class zentao_cli(object):
         }
 
         taskList = taskDict.get(now.day)
-
         today = str(datetime.now()).split(' ')[0]
+
+        # 如果要补之前日期的，把日期填在括号里执行下面这句
+        # taskList = taskDict.get(12)
+        # today = '2024-04-12
+
+
         for taskListDaily in taskList:
             # print(taskListDaily)
             data = {
