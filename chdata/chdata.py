@@ -133,6 +133,8 @@ for i in todo_list.get('data').get('list'):
             db = 'haierkuajing'
         elif 'HUBWMS' in db_name:
             db = 'hubwms'
+        elif 'rrswlhr' in db_name:
+            db = 'rrswlhr'
         else:
             db = ''
 
