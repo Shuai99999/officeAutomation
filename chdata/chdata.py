@@ -131,7 +131,7 @@ for i in todo_list.get('data').get('list'):
             db = 'huyi'
         elif 'kuajing' in db_name:
             db = 'haierkuajing'
-        elif 'HUBWMS' in db_name:
+        elif 'hubwms' in db_name.lower():
             db = 'hubwms'
         elif 'rrswlhr' in db_name:
             db = 'rrswlhr'
