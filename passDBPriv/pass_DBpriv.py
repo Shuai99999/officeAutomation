@@ -183,7 +183,7 @@ for i in todo_list.get('data').get('records'):
                                 print('分配oracle权限: ' + assetName + ' ' + accountName)
                             elif 'mysql' in assetName:
                                 subprocess.Popen(
-                                    ['su', '-', 'mysql', '/home/oracle/dba/pum.sh', assetName, accountName],
+                                    ['su', '-', 'mysql', '/home/mysql/dba/pum.sh', assetName, accountName],
                                     stdout=subprocess.PIPE)
                                 print('分配MySQL权限: ' + assetName + ' ' + accountName)
                         else:
