@@ -4,6 +4,23 @@ import re
 import urllib3
 import datetime
 
+leader_list = (
+    "00002388", "00020213", "00023081", "00023294", "00091916", "00575641", "00575684", "00575808", "00592395",
+    "00593200",
+    "00594074", "00620594", "00627401", "00930164", "01008707", "01022865", "01024414", "01024434", "01043503",
+    "01046999",
+    "01047165", "01056906", "01067077", "01075525", "01075732", "01148288", "01158932", "01175700", "01188381",
+    "01222067",
+    "01324959", "01356647", "01404762", "01409561", "01414905", "01414959", "01422515", "01428652", "01434645",
+    "18003735",
+    "22025586", "22035823", "23037292", "23039960", "23044496", "00091078", "00100130", "00960539", "00980548",
+    "01035368",
+    "01075381", "01239581", "01473388", "22036908", "00980949", "00091061", "22000341", "00100195", "00091048",
+    "01075601",
+    "00013254", "01046981", "01186807", "00575852", "00091087", "00032839", "00981041", "00002288", "00951176",
+    "01000233",
+    "00012262", "00621683", "01256209", "00620902", "00091006", "00013254", "00602350", "01435749", "00602350", "23050791")
+
 credential = "eyJzdWJqZWN0IjoiMDE0NTQyMjEiLCJwYXNzd29yZCI6ImQybHVaRzkzYzBBeE1nPT0iLCJ0eXBlIjoxfQ%3D%3D"
 token_url = "https://iama.haier.net/api/oauth/authorize?client_id=4dc643c5890060f8191edbf6e746db88&credential=" + credential + "&response_type=code&loginType=2&redirect_uri=https%3A%2F%2Ftechless.haier.net%2Fbpmsportal"
 
@@ -210,12 +227,12 @@ for i in todo_list.get('data').get('records'):
 
             for i in node_in_opin:
                 opin_leader = i.get('userId')
-                if '小微主' in getTitle(opin_leader):
+                if '小微主' in getTitle(opin_leader) or opin_leader in leader_list:
                     opin_result = '1'
                     final_opin_leader = opin_leader
 
             for i in node_in_reason:
-                if '小微主' in getTitle(i):
+                if '小微主' in getTitle(i) or opin_leader in leader_list:
                     reason_result = '1'
                     final_opin_leader = i
 
