@@ -227,12 +227,12 @@ for i in todo_list.get('data').get('records'):
 
             for i in node_in_opin:
                 opin_leader = i.get('userId')
-                if '小微主' in getTitle(opin_leader) or opin_leader in leader_list:
+                if getTitle(opin_leader) and ('小微主' in getTitle(opin_leader) or opin_leader in leader_list):
                     opin_result = '1'
                     final_opin_leader = opin_leader
 
             for i in node_in_reason:
-                if '小微主' in getTitle(i) or opin_leader in leader_list:
+                if getTitle(i) and ('小微主' in getTitle(i) or opin_leader in leader_list):
                     reason_result = '1'
                     final_opin_leader = i
 
