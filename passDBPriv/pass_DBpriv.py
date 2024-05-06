@@ -167,7 +167,6 @@ for i in todo_list.get('data').get('records'):
                         disagree_payload = json.dumps(disagree_payload)
                         disagree_fuc()
                     if is_8_digit_number(accountName):
-                        # print(accountName)
                         if accountName != userAccount:
                             disagree_payload = {"instanceId": "" + instId + "",
                                                 "taskId": "" + taskId + "",
