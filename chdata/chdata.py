@@ -139,7 +139,9 @@ for i in todo_list.get('data').get('list'):
             db = ''
 
         if db:
-            subprocess.Popen(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db], stdout=subprocess.PIPE)
+            # subprocess.Popen(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db], stdout=subprocess.PIPE)
+            chdata_result = subprocess.check_output(
+                ['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db]).decode('utf-8')
 
             agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
             agree_headers = {
@@ -164,7 +166,7 @@ for i in todo_list.get('data').get('list'):
 
             now = datetime.datetime.now()
 
-            print(now.strftime('%Y-%m-%d %H:%M:%S') + ' 任务：' + procBizCode + '审批成功')
+            print(now.strftime('%Y-%m-%d %H:%M:%S') + ' 任务：' + procBizCode + '审批成功，结果：' + chdata_result)
 
         elif '10.246.4.51' in db_name:
             trans_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/doNotice"
