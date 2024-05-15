@@ -4,8 +4,11 @@ import re
 import datetime
 import time
 import subprocess
+import sys
+sys.path.append("../credential")
+from credential import credential
 
-credential = "eyJzdWJqZWN0IjoiMDE0NTQyMjEiLCJwYXNzd29yZCI6ImQybHVaRzkzYzBBeE1nPT0iLCJ0eXBlIjoxfQ%3D%3D"
+# credential = "eyJzdWJqZWN0IjoiMDE0NTQyMjEiLCJwYXNzd29yZCI6ImQybHVaRzkzYzBBeE1nPT0iLCJ0eXBlIjoxfQ%3D%3D"
 token_url = "https://iama.haier.net/api/oauth/authorize?client_id=4dc643c5890060f8191edbf6e746db88&credential=" + credential + "&response_type=code&loginType=2&redirect_uri=https%3A%2F%2Ftechless.haier.net%2Fbpmsportal"
 
 token_payload = {}

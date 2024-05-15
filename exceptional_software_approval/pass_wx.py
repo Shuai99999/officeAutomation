@@ -3,6 +3,9 @@ import json
 import re
 import urllib3
 import datetime
+import sys
+sys.path.append("../credential")
+from credential import credential
 
 leader_list = (
     "00002388", "00020213", "00023081", "00023294", "00091916", "00575641", "00575684", "00575808", "00592395",
@@ -21,7 +24,7 @@ leader_list = (
     "01000233",
     "00012262", "00621683", "01256209", "00620902", "00091006", "00013254", "00602350", "01435749", "00602350", "23050791")
 
-credential = "eyJzdWJqZWN0IjoiMDE0NTQyMjEiLCJwYXNzd29yZCI6ImQybHVaRzkzYzBBeE1nPT0iLCJ0eXBlIjoxfQ%3D%3D"
+# credential = "eyJzdWJqZWN0IjoiMDE0NTQyMjEiLCJwYXNzd29yZCI6ImQybHVaRzkzYzBBeE1nPT0iLCJ0eXBlIjoxfQ%3D%3D"
 token_url = "https://iama.haier.net/api/oauth/authorize?client_id=4dc643c5890060f8191edbf6e746db88&credential=" + credential + "&response_type=code&loginType=2&redirect_uri=https%3A%2F%2Ftechless.haier.net%2Fbpmsportal"
 
 token_payload = {}
