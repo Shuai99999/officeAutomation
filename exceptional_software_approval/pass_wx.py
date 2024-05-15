@@ -4,7 +4,7 @@ import re
 import urllib3
 import datetime
 import sys
-sys.path.append("../credential")
+sys.path.insert(0, sys.path[0]+"/../credential")
 from credential import credential
 
 leader_list = (

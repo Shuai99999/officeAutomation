@@ -2,7 +2,7 @@ import requests
 import json
 import os
 import sys
-sys.path.append("../credential")
+sys.path.insert(0, sys.path[0]+"/../credential")
 from credential import credential
 
 # credential = "eyJzdWJqZWN0IjoiMDE0NTQyMjEiLCJwYXNzd29yZCI6ImQybHVaRzkzYzBBeE1nPT0iLCJ0eXBlIjoxfQ%3D%3D"
