@@ -163,12 +163,6 @@ for i in todo_list.get('data').get('list'):
                 code.write(sql_text)
 
         if db:
-            # subprocess.Popen(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db], stdout=subprocess.PIPE)
-            try:
-                chdata_result = subprocess.check_output(
-                    ['su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db]).decode('utf-8')
-            except subprocess.CalledProcessError as e:
-                chdata_result = 'ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax'
 
             agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
             agree_headers = {
@@ -192,6 +186,12 @@ for i in todo_list.get('data').get('list'):
             response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
 
             now = datetime.datetime.now()
+            # subprocess.Popen(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db], stdout=subprocess.PIPE)
+            try:
+                chdata_result = subprocess.check_output(
+                    ['su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db]).decode('utf-8')
+            except subprocess.CalledProcessError as e:
+                chdata_result = 'ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax'
 
             print(now.strftime('%Y-%m-%d %H:%M:%S') + ' 任务：' + procBizCode + '审批成功，结果：' + chdata_result)
 
