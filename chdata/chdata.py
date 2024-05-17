@@ -167,33 +167,33 @@ for i in todo_list.get('data').get('list'):
             try:
                 chdata_result = subprocess.check_output(
                     ['su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db]).decode('utf-8')
-            except Exception as e:
-                continue
-            finally:
-                agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
-                agree_headers = {
-                    'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
-                    'sec-ch-ua-mobile': '?0',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
-                    'Content-Type': 'application/json;charset=UTF-8',
-                    'Accept': 'application/json, text/plain, */*',
-                    'token': task_token,
-                    'sec-ch-ua-platform': '"Windows"',
-                    'host': 'rrsoa.rrswl.com'
-                }
+            except subprocess.CalledProcessError as e:
+                chdata_result = 'ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax'
 
-                payload = {
-                    "opinion": "<p>同意</p>",
-                    "end": "true",
-                    "taskId": taskId}
+            agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
+            agree_headers = {
+                'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
+                'sec-ch-ua-mobile': '?0',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+                'Content-Type': 'application/json;charset=UTF-8',
+                'Accept': 'application/json, text/plain, */*',
+                'token': task_token,
+                'sec-ch-ua-platform': '"Windows"',
+                'host': 'rrsoa.rrswl.com'
+            }
 
-                agree_payload = json.dumps(payload)
+            payload = {
+                "opinion": "<p>同意</p>",
+                "end": "true",
+                "taskId": taskId}
 
-                response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
+            agree_payload = json.dumps(payload)
 
-                now = datetime.datetime.now()
+            response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
 
-                print(now.strftime('%Y-%m-%d %H:%M:%S') + ' 任务：' + procBizCode + '审批成功，结果：' + chdata_result)
+            now = datetime.datetime.now()
+
+            print(now.strftime('%Y-%m-%d %H:%M:%S') + ' 任务：' + procBizCode + '审批成功，结果：' + chdata_result)
 
         elif '10.246.4.51' in db_name:
             trans_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/doNotice"
