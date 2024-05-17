@@ -168,7 +168,7 @@ for i in todo_list.get('data').get('list'):
                 chdata_result = subprocess.check_output(
                     ['su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db]).decode('utf-8')
             except Exception as e:
-                pass
+                continue
             finally:
                 agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
                 agree_headers = {
