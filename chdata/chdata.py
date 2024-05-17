@@ -85,6 +85,8 @@ for i in todo_list.get('data').get('list'):
         fileId = task_detail.get('fileId')
         sqlRemarks = task_detail.get('sqlRemarks')
 
+        db_name = task_detail["databaseAddress"]
+
         if 'cdk' in db_name and 'mysql' not in db_name:
             db = 'cdk_pr'
             db_type = 'oracle'
@@ -159,8 +161,6 @@ for i in todo_list.get('data').get('list'):
             sql_text = sql_text.encode()
             with open('/home/' + db_type + '/dba/prod/input', "wb") as code:
                 code.write(sql_text)
-
-        db_name = task_detail["databaseAddress"]
 
         if db:
             # subprocess.Popen(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db], stdout=subprocess.PIPE)
