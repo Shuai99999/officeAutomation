@@ -164,8 +164,7 @@ for i in todo_list.get('data').get('list'):
 
         if db:
             # subprocess.Popen(['su', '-', 'oracle', '/home/oracle/dba/prod/chdata.sh', db], stdout=subprocess.PIPE)
-            chdata_result = subprocess.check_output(
-                ['su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db]).decode('utf-8')
+
 
             agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
             agree_headers = {
@@ -189,6 +188,9 @@ for i in todo_list.get('data').get('list'):
             response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
 
             now = datetime.datetime.now()
+
+            chdata_result = subprocess.check_output(
+                ['su', '-', db_type, '/home/' + db_type + '/dba/prod/chdata.sh', db]).decode('utf-8')
 
             print(now.strftime('%Y-%m-%d %H:%M:%S') + ' 任务：' + procBizCode + '审批成功，结果：' + chdata_result)
 
