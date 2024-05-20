@@ -284,7 +284,7 @@ for i in todo_list.get('data').get('list'):
         task_detail = json.loads(task_details.get('data').get('boData'))
         fileId = task_detail.get('fileId')
         sqlRemarks = task_detail.get('sqlRemarks')
-        if sqlRemarks == '数据已导出，无需重复导。':
+        if sqlRemarks == '数据已导出，无需重复导。' or sqlRemarks == '已通过其他途径导出':
             agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
             agree_headers = {
                 'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
