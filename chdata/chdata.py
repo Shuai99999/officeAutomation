@@ -150,6 +150,9 @@ for i in todo_list.get('data').get('list'):
         elif 'm5en7lf4nppm54ngm7o' in db_name:
             db = 'cdk_auth_nsp_srp_dba'
             db_type = 'mysql'
+        elif 'v8z52br84u9zorvskoz4' in db_name:
+            db = 'wccyr'
+            db_type = 'mysql'
         else:
             db = ''
 
