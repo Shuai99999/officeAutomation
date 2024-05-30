@@ -144,6 +144,12 @@ for i in todo_list.get('data').get('list'):
         elif '10.246.82.104' in db_name:
             db = 'iwmsdb_master'
             db_type = 'mysql'
+        elif 'qdr1ksfraub9id' in db_name:
+            db = 'polardb_cdkread_exp'
+            db_type = 'mysql'
+        elif 'm5en7lf4nppm54ngm7o' in db_name:
+            db = 'cdk_auth_nsp_srp_dba'
+            db_type = 'mysql'
         else:
             db = ''
 
