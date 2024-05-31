@@ -156,6 +156,9 @@ for i in todo_list.get('data').get('list'):
         elif '-mysql-4897' in db_name:
             db = 'zlb'
             db_type = 'mysql'
+        elif 'kxorder' in db_name:
+            db = 'mecvwidedba'
+            db_type = 'mysql'
         else:
             db = ''
 
