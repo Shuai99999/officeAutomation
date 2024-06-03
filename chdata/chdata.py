@@ -165,6 +165,12 @@ for i in todo_list.get('data').get('list'):
         elif 'm5ev2c955pn291133' in db_name:
             db = 'wlhy'
             db_type = 'mysql'
+        elif '1169-10.246.82.105-mysql-4302' in db_name:
+            db = 'srm'
+            db_type = 'mysql'
+        elif 'haier12-kxapp.rwlb.rds.aliyuncs.com' in db_name:
+            db = 'mecv_dba'
+            db_type = 'mysql'
         else:
             db = ''
 
