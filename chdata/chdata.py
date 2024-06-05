@@ -87,6 +87,8 @@ for i in todo_list.get('data').get('list'):
 
         db_name = task_detail["databaseAddress"]
 
+        db_type = 'mysql'
+
         if 'cdk' in db_name and 'mysql' not in db_name:
             db = 'cdk_pr'
             db_type = 'oracle'
@@ -173,9 +175,6 @@ for i in todo_list.get('data').get('list'):
             db_type = 'mysql'
         elif 'crm_bas_db' in db_name:
             db = 'crm_bas_db'
-            db_type = 'mysql'
-        elif '1169-10.246.4.51-mysql-8066-odsotmdba' in db_name:
-            db = 'odsotmdba'
             db_type = 'mysql'
         else:
             db = ''
