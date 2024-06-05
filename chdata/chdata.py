@@ -171,6 +171,9 @@ for i in todo_list.get('data').get('list'):
         elif 'haier12-kxapp.rwlb.rds.aliyuncs.com' in db_name:
             db = 'mecv_dba'
             db_type = 'mysql'
+        elif 'crm_bas_db' in db_name:
+            db = 'crm_bas_db'
+            db_type = 'mysql'
         else:
             db = ''
 
