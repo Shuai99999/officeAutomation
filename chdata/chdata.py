@@ -174,6 +174,9 @@ for i in todo_list.get('data').get('list'):
         elif 'crm_bas_db' in db_name:
             db = 'crm_bas_db'
             db_type = 'mysql'
+        elif '1169-10.246.4.51-mysql-8066-odsotmdba' in db_name:
+            db = 'odsotmdba'
+            db_type = 'mysql'
         else:
             db = ''
 
