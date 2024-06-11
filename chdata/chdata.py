@@ -179,6 +179,9 @@ for i in todo_list.get('data').get('list'):
         elif '1169-10.246.2.95-mycat-5066' in db_name:
             db = 'xyc_mycat95_exp'
             db_type = 'mysql'
+        elif 'm5ei9xh1l69cg5331do' in db_name:
+            db = 'daojia_rds'
+            db_type = 'mysql'
         else:
             db = ''
 
