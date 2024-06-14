@@ -182,6 +182,9 @@ for i in todo_list.get('data').get('list'):
         elif 'm5ei9xh1l69cg5331do' in db_name:
             db = 'daojia_rds'
             db_type = 'mysql'
+        elif 'm5e1a60v8c3hfg6df' in db_name:
+            db = 'tms_ddzx_aliyun'
+            db_type = 'mysql'
         else:
             db = ''
 
