@@ -245,14 +245,16 @@ for i in todo_list.get('data').get('records'):
                     dgyssq_applyUserCode = dgyssq_applyUserCodes.get('applyUserCode')
                     t_apply_user = t_apply_user + ', ' + dgyssq_applyUserCode
 
-            if opin_result == '1' or reason_result == '1':
-                agree_fuc()
-            else:
-                disagree_payload = {"instanceId": "" + instId + "", "plat": "porcess-usb",
-                                    "taskId": "" + taskId + "",
-                                    "actionName": "unPass",
-                                    "opinion": "不同意 注意最终审批人应该是小微主，您需要向上查找自己的领导，否则不能通过。线上审批人节点里没有小微主的，请在报备具体原因中注明签字小微主的姓名和工号，具体请参照线上说明文档的截图 https://ihaier.feishu.cn/docx/PFSWdlfgyo6uToxt5EScG5cgnUg ，否则签字看不清楚，或没有在原因中注明的不再询问直接驳回。"}
 
-                disagree_payload = json.dumps(disagree_payload)
-                disagree_fuc()
-
+            # if opin_result == '1' or reason_result == '1':
+            #     agree_fuc()
+            # else:
+            #     disagree_payload = {"instanceId": "" + instId + "", "plat": "porcess-usb",
+            #                         "taskId": "" + taskId + "",
+            #                         "actionName": "unPass",
+            #                         "opinion": "不同意 注意最终审批人应该是小微主，您需要向上查找自己的领导，否则不能通过。线上审批人节点里没有小微主的，请在报备具体原因中注明签字小微主的姓名和工号，具体请参照线上说明文档的截图 https://ihaier.feishu.cn/docx/PFSWdlfgyo6uToxt5EScG5cgnUg ，否则签字看不清楚，或没有在原因中注明的不再询问直接驳回。"}
+            #
+            #     disagree_payload = json.dumps(disagree_payload)
+            #     disagree_fuc()
+            # 集团已调整为强制小微主审批，因此不需要上述判断了
+            agree_fuc()
