@@ -104,15 +104,15 @@ def agree_fuc():
         'host': 'aqzxlc.haier.net'
     }
 
-    current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    with open('微信审批记录.txt', "a") as code:
-    # with open('/root/python/pass_wx/approval_record.txt', "a") as code:
-        code.write('审批日期: ' + current_time + '; instId: ' + instId + '; taskId: ' + taskId + '; 申请人: ' + t_apply_user + '; 所在小微: ' + applyCompany + '; 申请软件: ' + rjxz + '; 审批领导: ' + final_opin_leader + '; 申请原因:' + reason)
-        code.write('\n')
+    # current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    # with open('微信审批记录.txt', "a") as code:
+    # # with open('/root/python/pass_wx/approval_record.txt', "a") as code:
+    #     code.write('审批日期: ' + current_time + '; instId: ' + instId + '; taskId: ' + taskId + '; 申请人: ' + t_apply_user + '; 所在小微: ' + applyCompany + '; 申请软件: ' + rjxz + '; 审批领导: ' + final_opin_leader + '; 申请原因:' + reason)
+    #     code.write('\n')
 
     http = urllib3.PoolManager()
     response = http.request('GET', file_list_url)
-    with open('\\root\\python\\pass_wx\\audit_pass_pdf\\' + instId + '_' + final_opin_leader +'.pdf', 'wb') as audit_pdf: audit_pdf.write(response.data)
+    # with open('\\root\\python\\pass_wx\\audit_pass_pdf\\' + instId + '_' + final_opin_leader +'.pdf', 'wb') as audit_pdf: audit_pdf.write(response.data)
 
     # print(t_apply_user + '：同意')
     agree = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
