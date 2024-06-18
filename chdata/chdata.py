@@ -188,6 +188,9 @@ for i in todo_list.get('data').get('list'):
         elif '10.246.82.140:4224' in db_name:
             db = 'diaoyunpt'
             db_type = 'mysql'
+        elif 'haier12-prod.mysql.polardb.rds.aliyuncs.com' in db_name:
+            db = 'mecv_finextend'
+            db_type = 'mysql'
         else:
             db = ''
 
