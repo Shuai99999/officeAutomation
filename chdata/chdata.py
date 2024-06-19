@@ -210,7 +210,6 @@ for i in todo_list.get('data').get('list'):
                 code.write(sql_text)
 
         if db:
-
             agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
             agree_headers = {
                 'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
@@ -242,50 +241,50 @@ for i in todo_list.get('data').get('list'):
 
             print(now.strftime('%Y-%m-%d %H:%M:%S') + ' 任务：' + procBizCode + '审批成功，结果：' + chdata_result)
 
-        # elif '10.246.4.51' in db_name:
-        #     trans_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/doNotice"
-        #
-        #     trans_payload = {"taskId": taskId, "instId": instId, "submitFlag": "noSubmit",
-        #                      "noticeUserIds": "20114316", "opinion": "<p>转发归档任务</p>"}
-        #     trans_headers = {
-        #         'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
-        #         'sec-ch-ua-mobile': '?0',
-        #         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
-        #         'Content-Type': 'application/json;charset=UTF-8',
-        #         'Accept': 'application/json, text/plain, */*',
-        #         'token': task_token,
-        #         'sec-ch-ua-platform': '"Windows"',
-        #         'host': 'rrsoa.rrswl.com'
-        #     }
-        #
-        #     response_trans = requests.request("POST", trans_url, headers=trans_headers, data=trans_payload)
-        #
-        #     time.sleep(5)
-        #
-        #     agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
-        #     agree_headers = {
-        #         'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
-        #         'sec-ch-ua-mobile': '?0',
-        #         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
-        #         'Content-Type': 'application/json;charset=UTF-8',
-        #         'Accept': 'application/json, text/plain, */*',
-        #         'token': task_token,
-        #         'sec-ch-ua-platform': '"Windows"',
-        #         'host': 'rrsoa.rrswl.com'
-        #     }
-        #
-        #     payload = {
-        #         "opinion": "<p>同意</p>",
-        #         "end": "true",
-        #         "taskId": taskId}
-        #
-        #     agree_payload = json.dumps(payload)
-        #
-        #     response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
-        #
-        #     now = datetime.datetime.now()
-        #
-        #     print(now.strftime('%Y-%m-%d %H:%M:%S') + ' 任务：' + procBizCode + '转发并审批成功')
+        elif '10.246.4.51' in db_name:
+            trans_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/doNotice"
+
+            trans_payload = {"taskId": taskId, "instId": instId, "submitFlag": "noSubmit",
+                             "noticeUserIds": "20114316", "opinion": "<p>转发归档任务</p>"}
+            trans_headers = {
+                'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
+                'sec-ch-ua-mobile': '?0',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+                'Content-Type': 'application/json;charset=UTF-8',
+                'Accept': 'application/json, text/plain, */*',
+                'token': task_token,
+                'sec-ch-ua-platform': '"Windows"',
+                'host': 'rrsoa.rrswl.com'
+            }
+
+            response_trans = requests.request("POST", trans_url, headers=trans_headers, data=trans_payload)
+
+            time.sleep(5)
+
+            agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
+            agree_headers = {
+                'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
+                'sec-ch-ua-mobile': '?0',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+                'Content-Type': 'application/json;charset=UTF-8',
+                'Accept': 'application/json, text/plain, */*',
+                'token': task_token,
+                'sec-ch-ua-platform': '"Windows"',
+                'host': 'rrsoa.rrswl.com'
+            }
+
+            payload = {
+                "opinion": "<p>同意</p>",
+                "end": "true",
+                "taskId": taskId}
+
+            agree_payload = json.dumps(payload)
+
+            # response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
+
+            now = datetime.datetime.now()
+
+            print(now.strftime('%Y-%m-%d %H:%M:%S') + ' 任务：' + procBizCode + '转发并审批成功')
 
         # elif db_name == '1169-10.246.82.104-mysql-4523':
         #     db = 'iwmsdb_master'
