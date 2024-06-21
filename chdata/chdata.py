@@ -282,7 +282,7 @@ for i in todo_list.get('data').get('list'):
 
             agree_payload = json.dumps(payload)
 
-            # response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
+            response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
 
             now = datetime.datetime.now()
 
