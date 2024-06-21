@@ -69,7 +69,7 @@ todo_list = json.loads(todo_list_url.text)
 
 for i in todo_list.get('data').get('list'):
     taskId = i.get('taskId')
-    instId = i.get('procInstId')
+    instId = i.get('id')
     procBizCode = i.get('procBizCode')
     procDefName = i.get('procDefName')
 
