@@ -246,6 +246,7 @@ for i in todo_list.get('data').get('list'):
 
             trans_payload = {"taskId": taskId, "instId": instId, "submitFlag": "noSubmit",
                              "noticeUserIds": "20114316", "opinion": "<p>转发归档任务</p>"}
+            trans_payload = json.dumps(trans_payload)
             trans_headers = {
                 'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
                 'sec-ch-ua-mobile': '?0',
