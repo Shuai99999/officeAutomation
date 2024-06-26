@@ -144,7 +144,7 @@ for i in todo_list.get('data').get('records'):
     if '终端安全防护例外流程' in tempTile:
         taskviewurl = taskviewurl[taskviewurl.find("?") + 1:].replace('i', 'I')
         instId = taskviewurl[taskviewurl.find("eId=") + 4:taskviewurl.find("&")]
-        taskId = taskviewurl[taskviewurl.find("kId=") + 4:]
+        taskId = taskviewurl[taskviewurl.find("kId=") + 4:taskviewurl.find("&", taskviewurl.find("kId=") + 4)]
         # print(tempTile)
 
         task_url = "https://aqzxlc.haier.net/S03269/process/form_data?process" + taskviewurl
