@@ -114,7 +114,7 @@ def agree_fuc():
     response = http.request('GET', file_list_url)
     # with open('\\root\\python\\pass_wx\\audit_pass_pdf\\' + instId + '_' + final_opin_leader +'.pdf', 'wb') as audit_pdf: audit_pdf.write(response.data)
 
-    # print(t_apply_user + '：同意')
+    print(t_apply_user + '：同意')
     agree = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
 
 def disagree_fuc():
@@ -144,7 +144,12 @@ for i in todo_list.get('data').get('records'):
     if '终端安全防护例外流程' in tempTile:
         taskviewurl = taskviewurl[taskviewurl.find("?") + 1:].replace('i', 'I')
         instId = taskviewurl[taskviewurl.find("eId=") + 4:taskviewurl.find("&")]
-        taskId = taskviewurl[taskviewurl.find("kId=") + 4:taskviewurl.find("&", taskviewurl.find("kId=") + 4)]
+        # taskId = taskviewurl[taskviewurl.find("kId=") + 4:taskviewurl.find("&", taskviewurl.find("kId=") + 4)]
+        tmp_taskId = taskviewurl[taskviewurl.find("kId=") + 4:]
+        if '&' in tmp_taskId:
+            taskId = tmp_taskId[0:tmp_taskId.find('&')]
+        else:
+            taskId = tmp_taskId
         # print(tempTile)
 
         task_url = "https://aqzxlc.haier.net/S03269/process/form_data?process" + taskviewurl
