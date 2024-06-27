@@ -114,7 +114,7 @@ def agree_fuc():
     response = http.request('GET', file_list_url)
     # with open('\\root\\python\\pass_wx\\audit_pass_pdf\\' + instId + '_' + final_opin_leader +'.pdf', 'wb') as audit_pdf: audit_pdf.write(response.data)
 
-    print(t_apply_user + '：同意')
+    # print(t_apply_user + '：同意')
     agree = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
 
 def disagree_fuc():
