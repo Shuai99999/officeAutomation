@@ -191,6 +191,9 @@ for i in todo_list.get('data').get('list'):
         elif 'haier12-prod.mysql.polardb.rds.aliyuncs.com' in db_name:
             db = 'mecv_finextend'
             db_type = 'mysql'
+        elif '4802' in db_name:
+            db = 'xyc_master3'
+            db_type = 'mysql'
         else:
             db = ''
 
