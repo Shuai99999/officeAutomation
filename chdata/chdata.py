@@ -196,6 +196,9 @@ for credential in credential_gaoshuai,credential_diaowentao:
             elif '4802' in db_name:
                 db = 'xyc_master3'
                 db_type = 'mysql'
+            elif '4148' in db_name:
+                db = 'crm_receipt_db'
+                db_type = 'mysql'
             else:
                 db = ''
 
