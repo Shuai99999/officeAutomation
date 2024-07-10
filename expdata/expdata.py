@@ -81,6 +81,9 @@ for i in todo_list.get('data').get('list'):
         if '10.246.2.160' in db_name:
             db = 'crm_exp'
             db_type = 'mysql'
+        elif '10.246.82.162-mysql-4897' in db_name:
+            db = 'zlb_exp'
+            db_type = 'mysql'
         else:
             db = ''
             db_type = ''
