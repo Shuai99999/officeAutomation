@@ -2,7 +2,8 @@ import requests
 import json
 import sys
 import subprocess
-sys.path.insert(0, sys.path[0]+"/../credential")
+
+sys.path.insert(0, sys.path[0] + "/../credential")
 from credential import credential
 
 # credential = "eyJzdWJqZWN0IjoiMDE0NTQyMjEiLCJwYXNzd29yZCI6ImQybHVaRzkzYzBBeE1nPT0iLCJ0eXBlIjoxfQ%3D%3D"
@@ -81,12 +82,15 @@ for i in todo_list.get('data').get('list'):
         if '10.246.2.160' in db_name:
             db = 'crm_exp'
             db_type = 'mysql'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:omsexp 密码:7wS&$M7ffGfLdg93，查找文件：'
         elif '10.246.82.162-mysql-4897' in db_name:
             db = 'zlb_exp'
             db_type = 'mysql'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:iwmsexp 密码:h$6m$LzBZESvwTcr，查找文件：'
         else:
             db = ''
             db_type = ''
+            fileInfo = ''
 
         if fileId:
             fileIdArray = fileId.split(',')
@@ -105,6 +109,29 @@ for i in todo_list.get('data').get('list'):
                 code.write(sql_text)
 
         if db:
-            subprocess.Popen(['su', '-', db_type, '/home/' + db_type + '/dba/bi/multi_exp.sh', db, procBizCode, " > /dev/null &"], stdout=subprocess.PIPE)
+            subprocess.Popen(
+                ['su', '-', db_type, '/home/' + db_type + '/dba/bi/multi_exp.sh', db, procBizCode, " > /dev/null &"],
+                stdout=subprocess.PIPE)
             print('tail -1 /home/' + db_type + '/dba/bi/rpt')
 
+            agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agreeData"
+
+            agree_payload = {"taskId": taskId,
+                             "data": {"applyType": "1", "isConfirm": "1",
+                                      "fileInfo": fileInfo + procBizCode + ".zip", "status": "1"},
+                             "actionName": "agree"}
+            agree_headers = {
+                'sec-ch-ua': '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
+                'sec-ch-ua-mobile': '?0',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+                'Content-Type': 'application/json;charset=UTF-8',
+                'Accept': 'application/json, text/plain, */*',
+                'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqd3RfcmVmcmVzaF90b2tlbjoiOjE3MjA2MDkwNTM0MzgsInRlbmFudElkIjoiMCIsImNsaWVudCI6IlBDIiwiaWQiOiIxNDk3MTM5NjQ1OTYxNzY0ODY1IiwidXNlck5hbWUiOiIwOjAxNDU0MjIxIiwiZXhwIjoxNzIwNjEwODUzfQ.i7UoIJ9iowEQXI8gvAJuKqnOm2-olPvwQ1i_esy6zAg',
+                'sec-ch-ua-platform': '"Windows"',
+                'Sec-Fetch-Site': 'same-origin',
+                'Sec-Fetch-Mode': 'cors',
+                'Sec-Fetch-Dest': 'empty',
+                'host': 'rrsoa.rrswl.com'
+            }
+
+            response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
