@@ -9,6 +9,7 @@ sys.path.insert(0, sys.path[0]+"/../credential")
 from credential import credential_gaoshuai
 from credential import credential_diaowentao
 
+
 for credential in credential_gaoshuai, credential_diaowentao:
 # for credential in credential_gaoshuai:
     # credential = "eyJzdWJqZWN0IjoiMDE0NTQyMjEiLCJwYXNzd29yZCI6ImQybHVaRzkzYzBBeE1nPT0iLCJ0eXBlIjoxfQ%3D%3D"
