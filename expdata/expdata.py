@@ -104,7 +104,7 @@ for i in todo_list.get('data').get('list'):
             with open('/home/' + db_type + '/dba/bi/input', "wb") as code:
                 code.write(sql_text)
 
-        # if db:
-        #     subprocess.Popen(['su', '-', db_type, '/home/' + db_type + '/dba/bi/multi_exp.sh', db, procBizCode, " > /dev/null &"], stdout=subprocess.PIPE)
-        #     print('tail -1 /home/' + db_type + '/dba/bi/rpt')
+        if db:
+            subprocess.Popen(['su', '-', db_type, '/home/' + db_type + '/dba/bi/multi_exp.sh', db, procBizCode, " > /dev/null &"], stdout=subprocess.PIPE)
+            print('tail -1 /home/' + db_type + '/dba/bi/rpt')
 
