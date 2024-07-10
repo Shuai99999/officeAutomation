@@ -77,35 +77,34 @@ for i in todo_list.get('data').get('list'):
         fileId = task_detail.get('sqlFileId')
         sqlRemarks = task_detail.get('sqlRemarks')
         db_name = task_detail["databaseUrl"]
-        print(db_name)
 
-        # if '10.246.2.160' in db_name:
-        #     db = 'crm_exp'
-        #     db_type = 'mysql'
-        # elif '10.246.82.162-mysql-4897' in db_name:
-        #     db = 'zlb_exp'
-        #     db_type = 'mysql'
-        # else:
-        #     db = ''
-        #     db_type = ''
-        #
-        # if fileId:
-        #     fileIdArray = fileId.split(',')
-        #     for fileIdArrayItem in fileIdArray:
-        #         attach_url = 'https://rrsoa.rrswl.com/uniedp-web/obs/download?ossId=' + fileIdArrayItem + '&token=' + task_token + '&charset=UTF-8'
-        #         attach = requests.get(attach_url)
-        #         with open('/home/' + db_type + '/dba/bi/inputs', "wb") as code:
-        #             # with open('input.txt', "wb") as code:
-        #             code.write(attach.content)
-        #         # os.system('read -n 1')
-        #
-        # else:
-        #     sql_text = sqlRemarks
-        #     sql_text = sql_text.encode()
-        #     with open('/home/' + db_type + '/dba/bi/input', "wb") as code:
-        #         code.write(sql_text)
-        #
+        if '10.246.2.160' in db_name:
+            db = 'crm_exp'
+            db_type = 'mysql'
+        elif '10.246.82.162-mysql-4897' in db_name:
+            db = 'zlb_exp'
+            db_type = 'mysql'
+        else:
+            db = ''
+            db_type = ''
+
+        if fileId:
+            fileIdArray = fileId.split(',')
+            for fileIdArrayItem in fileIdArray:
+                attach_url = 'https://rrsoa.rrswl.com/uniedp-web/obs/download?ossId=' + fileIdArrayItem + '&token=' + task_token + '&charset=UTF-8'
+                attach = requests.get(attach_url)
+                with open('/home/' + db_type + '/dba/bi/inputs', "wb") as code:
+                    # with open('input.txt', "wb") as code:
+                    code.write(attach.content)
+                # os.system('read -n 1')
+
+        else:
+            sql_text = sqlRemarks
+            sql_text = sql_text.encode()
+            with open('/home/' + db_type + '/dba/bi/input', "wb") as code:
+                code.write(sql_text)
+
         # if db:
         #     subprocess.Popen(['su', '-', db_type, '/home/' + db_type + '/dba/bi/multi_exp.sh', db, procBizCode, " > /dev/null &"], stdout=subprocess.PIPE)
         #     print('tail -1 /home/' + db_type + '/dba/bi/rpt')
-        #
+
