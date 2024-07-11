@@ -92,41 +92,43 @@ for i in todo_list.get('data').get('list'):
             db_type = ''
             fileInfo = ''
 
-        if fileId:
-            fileIdArray = fileId.split(',')
-            for fileIdArrayItem in fileIdArray:
-                attach_url = 'https://rrsoa.rrswl.com/uniedp-web/obs/download?ossId=' + fileIdArrayItem + '&token=' + task_token + '&charset=UTF-8'
-                attach = requests.get(attach_url)
-                with open('/home/' + db_type + '/dba/bi/inputs', "wb") as code:
-                    # with open('input.txt', "wb") as code:
-                    code.write(attach.content)
-                # os.system('read -n 1')
-
-        else:
-            sql_text = sqlRemarks
-            sql_text = sql_text.encode()
-            with open('/home/' + db_type + '/dba/bi/input', "wb") as code:
-                code.write(sql_text)
+        # if fileId:
+        #     fileIdArray = fileId.split(',')
+        #     for fileIdArrayItem in fileIdArray:
+        #         attach_url = 'https://rrsoa.rrswl.com/uniedp-web/obs/download?ossId=' + fileIdArrayItem + '&token=' + task_token + '&charset=UTF-8'
+        #         attach = requests.get(attach_url)
+        #         with open('/home/' + db_type + '/dba/bi/inputs', "wb") as code:
+        #             # with open('input.txt', "wb") as code:
+        #             code.write(attach.content)
+        #         # os.system('read -n 1')
+        #
+        # else:
+        #     sql_text = sqlRemarks
+        #     sql_text = sql_text.encode()
+        #     with open('/home/' + db_type + '/dba/bi/input', "wb") as code:
+        #         code.write(sql_text)
 
         if db:
-            subprocess.Popen(
-                ['su', '-', db_type, '/home/' + db_type + '/dba/bi/multi_exp.sh', db, procBizCode, " > /dev/null &"],
-                stdout=subprocess.PIPE)
+            # subprocess.Popen(
+            #     ['su', '-', db_type, '/home/' + db_type + '/dba/bi/multi_exp.sh', db, procBizCode, " > /dev/null &"],
+            #     stdout=subprocess.PIPE)
             print('tail -1 /home/' + db_type + '/dba/bi/rpt')
 
-            agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agreeData"
+            agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
 
-            agree_payload = {"taskId": taskId,
-                             "data": {"applyType": "1", "isConfirm": "1",
-                                      "fileInfo": fileInfo + procBizCode + ".zip", "status": "1"},
-                             "actionName": "agree"}
+            agree_payload = json.dumps({"taskId": taskId,
+                                            "data": json.dumps({"applyType": "1", "isConfirm": "1",
+                                                                "fileInfo": fileInfo + procBizCode + ".zip",
+                                                                "status": "1"}),
+                                            "actionName": "agree", "opinion": "<p>同意</p>",
+                                            "end": "true"})
             agree_headers = {
                 'sec-ch-ua': '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
                 'sec-ch-ua-mobile': '?0',
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
                 'Content-Type': 'application/json;charset=UTF-8',
                 'Accept': 'application/json, text/plain, */*',
-                'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqd3RfcmVmcmVzaF90b2tlbjoiOjE3MjA2MDkwNTM0MzgsInRlbmFudElkIjoiMCIsImNsaWVudCI6IlBDIiwiaWQiOiIxNDk3MTM5NjQ1OTYxNzY0ODY1IiwidXNlck5hbWUiOiIwOjAxNDU0MjIxIiwiZXhwIjoxNzIwNjEwODUzfQ.i7UoIJ9iowEQXI8gvAJuKqnOm2-olPvwQ1i_esy6zAg',
+                'token': task_token,
                 'sec-ch-ua-platform': '"Windows"',
                 'Sec-Fetch-Site': 'same-origin',
                 'Sec-Fetch-Mode': 'cors',
@@ -135,3 +137,5 @@ for i in todo_list.get('data').get('list'):
             }
 
             response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
+
+            print(json.loads(response.text))
