@@ -166,7 +166,7 @@ for i in todo_list.get('data').get('list'):
         elif 'kxorder' in db_name:
             db = 'mecvwidedba'
             db_type = 'mysql'
-        elif '1169-10.246.2.96-mycat-5066' in db_name:
+        elif '1169-10.246.2.96' in db_name:
             db = 'xyc_mycat96'
             db_type = 'mysql'
         elif 'm5ev2c955pn291133' in db_name:
