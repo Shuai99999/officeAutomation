@@ -220,7 +220,7 @@ for i in todo_list.get('data').get('list'):
             with open('/home/' + db_type + '/dba/prod/input', "wb") as code:
                 code.write(sql_text)
 
-        if db:
+        if db and procBizCode != 'FLW20240722106746':
             agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
             agree_headers = {
                 'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
