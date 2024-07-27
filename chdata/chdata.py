@@ -112,6 +112,9 @@ for i in todo_list.get('data').get('list'):
         elif 'i2wms' in db_name:
             db = 'i2wms_pr'
             db_type = 'oracle'
+        elif 'hles3s' in db_name:
+            db = 'i3wms_pr'
+            db_type = 'oracle'
         elif 'i3wms' in db_name:
             db = 'i3wms_pr'
             db_type = 'oracle'
