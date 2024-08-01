@@ -162,4 +162,12 @@ for i in todo_list.get('data').get('list'):
 
             response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
 
-            # print(json.loads(response.text))
+        elif 'impala' in db_name:
+            payload = {
+                "opinion": "<p>同意</p>",
+                "end": "true",
+                "taskId": taskId}
+
+            agree_payload = json.dumps(payload)
+
+            response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
