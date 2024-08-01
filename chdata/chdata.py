@@ -202,6 +202,9 @@ for i in todo_list.get('data').get('list'):
         elif '4148' in db_name:
             db = 'crm_receipt_db'
             db_type = 'mysql'
+        elif '10.246.4.112' in db_name:
+            db = 'htms'
+            db_type = 'mysql'
         else:
             db = ''
 
