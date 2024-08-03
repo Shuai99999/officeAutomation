@@ -132,23 +132,23 @@ for i in todo_list.get('data').get('list'):
             db_type = ''
             fileInfo = ''
 
-        if fileId:
-            fileIdArray = fileId.split(',')
-            for fileIdArrayItem in fileIdArray:
-                attach_url = 'https://rrsoa.rrswl.com/uniedp-web/obs/download?ossId=' + fileIdArrayItem + '&token=' + task_token + '&charset=UTF-8'
-                attach = requests.get(attach_url)
-                with open('/home/' + db_type + '/dba/bi/inputs', "wb") as code:
-                    # with open('input.txt', "wb") as code:
-                    code.write(attach.content)
-                # os.system('read -n 1')
-
-        else:
-            sql_text = sqlRemarks
-            sql_text = sql_text.encode()
-            with open('/home/' + db_type + '/dba/bi/inputs', "wb") as code:
-                code.write(sql_text)
-
         if db:
+            if fileId:
+                fileIdArray = fileId.split(',')
+                for fileIdArrayItem in fileIdArray:
+                    attach_url = 'https://rrsoa.rrswl.com/uniedp-web/obs/download?ossId=' + fileIdArrayItem + '&token=' + task_token + '&charset=UTF-8'
+                    attach = requests.get(attach_url)
+                    with open('/home/' + db_type + '/dba/bi/inputs', "wb") as code:
+                        # with open('input.txt', "wb") as code:
+                        code.write(attach.content)
+                    # os.system('read -n 1')
+
+            else:
+                sql_text = sqlRemarks
+                sql_text = sql_text.encode()
+                with open('/home/' + db_type + '/dba/bi/inputs', "wb") as code:
+                    code.write(sql_text)
+
             subprocess.Popen(
                 ['su', '-', db_type, '/home/' + db_type + '/dba/bi/multi_exp.sh', db, procBizCode, " > /dev/null &"],
                 stdout=subprocess.PIPE)
