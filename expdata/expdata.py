@@ -179,6 +179,18 @@ for i in todo_list.get('data').get('list'):
             response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
 
         elif 'impala' in db_name:
+            agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
+            agree_headers = {
+                'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
+                'sec-ch-ua-mobile': '?0',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+                'Content-Type': 'application/json;charset=UTF-8',
+                'Accept': 'application/json, text/plain, */*',
+                'token': task_token,
+                'sec-ch-ua-platform': '"Windows"',
+                'host': 'rrsoa.rrswl.com'
+            }
+
             payload = {
                 "opinion": "<p>同意</p>",
                 "end": "true",
