@@ -77,7 +77,7 @@ for i in todo_list.get('data').get('list'):
         task_detail = json.loads(task_details.get('data').get('boData'))
         fileId = task_detail.get('sqlFileId')
         sqlRemarks = task_detail.get('sqlRemarks')
-        db_name = task_detail["databaseUrl"]
+        db_name = task_detail["databaseName"]
 
         if '10.246.2.160' in db_name:
             db = 'crm_exp'
@@ -90,6 +90,10 @@ for i in todo_list.get('data').get('list'):
         elif '10.246.4.51' in db_name:
             db = 'newoms_ods'
             db_type = 'mysql'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:omsexp 密码:7wS&$M7ffGfLdg93，查找文件：'
+        elif 'oracle_arch_oms_exp' in db_name:
+            db = 'oracle_arch_oms_exp'
+            db_type = 'oracle'
             fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:omsexp 密码:7wS&$M7ffGfLdg93，查找文件：'
         elif 'imfs_exp' in db_name:
             db = 'imfs_exp'
