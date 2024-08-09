@@ -77,6 +77,7 @@ for i in todo_list.get('data').get('list'):
         task_detail = json.loads(task_details.get('data').get('boData'))
         fileId = task_detail.get('sqlFileId')
         sqlRemarks = task_detail.get('sqlRemarks')
+        db_url = task_detail["databaseUrl"]
         db_name = task_detail["databaseName"]
 
         if '10.246.2.160' in db_name:
@@ -194,7 +195,7 @@ for i in todo_list.get('data').get('list'):
 
             response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
 
-        elif 'impala' in db_name:
+        elif 'impala' in db_url:
             agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
             agree_headers = {
                 'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
