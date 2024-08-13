@@ -152,6 +152,10 @@ for i in todo_list.get('data').get('list'):
             db = 'mycat_bms8066_ldgdb_exp'
             db_type = 'mysql'
             fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:bmsexp 密码:cvh$UhTqVk*eYfHr，查找文件：'
+        elif 'sqm' in db_url:
+            db = 'sqmprod'
+            db_type = 'ob'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:sqmexp 密码:Ya8RNHSk7MO7NIai，查找文件：'
         else:
             db = ''
             db_type = ''
