@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-credential = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqd3RfcmVmcmVzaF90b2tlbjoiOjE3MjM5NzA4MTY3MDksInRlbmFudElkIjoiMCIsImNsaWVudCI6IlBDIiwiaWQiOiIxNDk3MTM5NjQ1OTYxNzY0ODY1IiwidXNlck5hbWUiOiIwOjAxNDU0MjIxIiwiZXhwIjoxNzIzOTcyNjE2fQ.IuKSrKzcRMJ_iAz1O2Zl3vCb2EKzHKyWvxEjYPWx1gE'
+credential = 'eyJzdWJqZWN0IjoiMDE0NTQyMjEiLCJwYXNzd29yZCI6ImQybHVaRzkzYzBBeE13PT0iLCJ0eXBlIjoxfQ%3D%3D'
 credential_gaoshuai = 'eyJzdWJqZWN0IjoiMDE0NTQyMjEiLCJwYXNzd29yZCI6ImQybHVaRzkzYzBBeE13PT0iLCJ0eXBlIjoxfQ%3D%3D'
 credential_diaowentao = 'eyJzdWJqZWN0IjoiMjMwMzI5MTkiLCJwYXNzd29yZCI6IlJGZFVNVGs1TmpBeE1qbGtkM1E9IiwidHlwZSI6MX0%3D'
 # credential_diaowentao = 'ey'
