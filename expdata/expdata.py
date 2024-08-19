@@ -116,6 +116,10 @@ for i in todo_list.get('data').get('list'):
             db = 'oracle_cdk_exp'
             db_type = 'oracle'
             fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:cdkexp 密码:8UytK6Z*toY5，查找文件：'
+        elif 'oracle_cdkbi_exp' in db_name:
+            db = 'oracle_cdkbi_exp'
+            db_type = 'oracle'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:cdkexp 密码:8UytK6Z*toY5，查找文件：'
         elif 'oracle_vom2_exp' in db_name or 'wloms2' in db_url:
             db = 'oracle_vom2_exp'
             db_type = 'oracle'
