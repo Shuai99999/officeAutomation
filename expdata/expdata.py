@@ -160,6 +160,10 @@ for i in todo_list.get('data').get('list'):
             db = 'oracle_wldtm_exp'
             db_type = 'oracle'
             fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:iwmsexp 密码:h$6m$LzBZESvwTcr，查找文件：'
+        elif 'oracle_app_exp' in db_name:
+            db = 'oracle_app_exp'
+            db_type = 'oracle'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:appexp 密码:fDHub0erCGenMpq*，查找文件：'
         elif 'iwmsdb_exp' in db_name or 'iwms_sysdb_exp' in db_name:
             db = 'iwmsdb_exp'
             db_type = 'mysql'
@@ -203,7 +207,7 @@ for i in todo_list.get('data').get('list'):
 
             agree_payload = json.dumps({"taskId": taskId,
                                             "data": json.dumps({"applyType": "1", "isConfirm": "1",
-                                                                "fileInfo": fileInfo + procBizCode + ".zip",
+                                                                "fileInfo": fileInfo + procBizCode,
                                                                 "status": "1"}),
                                             "actionName": "agree", "opinion": "<p>同意</p>",
                                             "end": "true"})
