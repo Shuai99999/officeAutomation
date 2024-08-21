@@ -108,6 +108,10 @@ for i in todo_list.get('data').get('list'):
             db = 'cdkread_exp'
             db_type = 'mysql'
             fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:cdkexp 密码:8UytK6Z*toY5，查找文件：'
+        elif 'mysql_cdk_auch_exp' in db_name:
+            db = 'cdkread_exp'
+            db_type = 'mysql'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:cdkexp 密码:8UytK6Z*toY5，查找文件：'
         elif 'mysql_erp_exp' in db_name:
             db = 'mysql_erp_exp'
             db_type = 'mysql'
