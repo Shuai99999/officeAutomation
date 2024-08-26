@@ -88,8 +88,12 @@ for i in todo_list.get('data').get('list'):
             db = 'zlb_exp'
             db_type = 'mysql'
             fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:iwmsexp 密码:h$6m$LzBZESvwTcr，查找文件：'
-        elif '10.246.4.51' in db_name:
-            db = 'newoms_ods'
+        elif 'mycat_oms_ods_exp' in db_name:
+            db = 'mycat_oms_ods_exp'
+            db_type = 'mysql'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:omsexp 密码:7wS&$M7ffGfLdg93，查找文件：'
+        elif 'mycat_oms_otm_exp' in db_name:
+            db = 'mycat_oms_otm_exp'
             db_type = 'mysql'
             fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:omsexp 密码:7wS&$M7ffGfLdg93，查找文件：'
         elif 'oracle_arch_oms_exp' in db_name:
