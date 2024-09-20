@@ -153,6 +153,9 @@ for i in todo_list.get('data').get('list'):
         elif 'hubwms' in db_name.lower():
             db = 'hubwms'
             db_type = 'oracle'
+        elif 'wldtm' in db_name.lower():
+            db = 'wldtm'
+            db_type = 'oracle'
         elif 'rrswlhr' in db_name:
             db = 'rrswlhr'
             db_type = 'oracle'
