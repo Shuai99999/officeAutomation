@@ -120,7 +120,7 @@ for i in todo_list.get('data').get('list'):
         elif 'i3wms' in db_name:
             db = 'i3wms_pr'
             db_type = 'oracle'
-        elif 'i4wms' in db_name:
+        elif 'i4wms' in db_name or 'iwms04' in db_name:
             db = 'iwms04_pr'
             db_type = 'oracle'
         elif 'rrslesdb' in db_name:
