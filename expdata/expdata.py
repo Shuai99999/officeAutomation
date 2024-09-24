@@ -196,6 +196,10 @@ for i in todo_list.get('data').get('list'):
             db = 'mysql_kx_exp'
             db_type = 'mysql'
             fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:kxexp 密码:yRJu*IA$vSTEA$hp，查找文件：'
+        elif 'mysql_kx_caiwu_exp' in db_name:
+            db = 'mysql_kx_caiwu_exp'
+            db_type = 'mysql'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:kxexp 密码:yRJu*IA$vSTEA$hp，查找文件：'
         elif 'sqm' in db_url:
             db = 'sqmprod'
             db_type = 'ob'
