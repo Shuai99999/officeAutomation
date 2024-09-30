@@ -204,6 +204,10 @@ for i in todo_list.get('data').get('list'):
             db = 'sqmprod'
             db_type = 'ob'
             fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:sqmexp 密码:Ya8RNHSk7MO7NIai，查找文件：'
+        elif 'impala' in db_url:
+            db = 'impala'
+            db_type = 'impala'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:kxexp 密码:yRJu*IA$vSTEA$hp，查找文件：'
         else:
             db = ''
             db_type = ''
@@ -255,24 +259,24 @@ for i in todo_list.get('data').get('list'):
 
             response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
 
-        elif 'impala' in db_url:
-            agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
-            agree_headers = {
-                'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
-                'sec-ch-ua-mobile': '?0',
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
-                'Content-Type': 'application/json;charset=UTF-8',
-                'Accept': 'application/json, text/plain, */*',
-                'token': task_token,
-                'sec-ch-ua-platform': '"Windows"',
-                'host': 'rrsoa.rrswl.com'
-            }
-
-            payload = {
-                "opinion": "<p>同意</p>",
-                "end": "true",
-                "taskId": taskId}
-
-            agree_payload = json.dumps(payload)
-
-            response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
+        # elif 'impala' in db_url:
+        #     agree_url = "https://rrsoa.rrswl.com/uniedp-web/oa/flowable/taskInst/agree"
+        #     agree_headers = {
+        #         'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
+        #         'sec-ch-ua-mobile': '?0',
+        #         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+        #         'Content-Type': 'application/json;charset=UTF-8',
+        #         'Accept': 'application/json, text/plain, */*',
+        #         'token': task_token,
+        #         'sec-ch-ua-platform': '"Windows"',
+        #         'host': 'rrsoa.rrswl.com'
+        #     }
+        #
+        #     payload = {
+        #         "opinion": "<p>同意</p>",
+        #         "end": "true",
+        #         "taskId": taskId}
+        #
+        #     agree_payload = json.dumps(payload)
+        #
+        #     response = requests.request("POST", agree_url, headers=agree_headers, data=agree_payload)
