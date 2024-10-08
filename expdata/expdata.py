@@ -136,6 +136,10 @@ for i in todo_list.get('data').get('list'):
             db = 'mysql_erp_exp'
             db_type = 'mysql'
             fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:cdkexp 密码:8UytK6Z*toY5，查找文件：'
+        elif 'mysql_cdk_auch_srp_exp' in db_name:
+            db = 'mysql_cdk_auch_srp_exp'
+            db_type = 'mysql'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:cdkexp 密码:8UytK6Z*toY5，查找文件：'
         elif 'oracle_cdk_exp' in db_name:
             db = 'oracle_cdk_exp'
             db_type = 'oracle'
@@ -148,6 +152,10 @@ for i in todo_list.get('data').get('list'):
             db = 'oracle_vom2_exp'
             db_type = 'oracle'
             fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:omsexp 密码:7wS&$M7ffGfLdg93，查找文件：'
+        elif 'tms_ddzx_aliyun_exp' in db_name:
+            db = 'tms_ddzx_aliyun_exp'
+            db_type = 'mysql'
+            fileInfo = '您的数据已导出，n请登录rrswl导数ftp，打开文件资源管理器（任意文件夹），输入地址 ftp://10.135.30.96/ 输入 用户名:tmsexp 密码:dSLLg6YLYbRBaFoU，查找文件：'
         elif '10.246.2.96' in db_name:
             db = 'xyc_mycat96_order_exp'
             db_type = 'mysql'
