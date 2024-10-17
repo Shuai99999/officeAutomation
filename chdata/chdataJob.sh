@@ -1,1 +1,1 @@
-/usr/bin/python3 /root/python/officeAutomation/chdata/chdataJob.py >> /root/python/officeAutomation/chdata/chdataJob.log
+/usr/bin/python3 /root/python/officeAutomation/chdata/chdataJob.py job >> /root/python/officeAutomation/chdata/chdataJob.log
