@@ -73,9 +73,9 @@ todo_list_url = requests.get(url=url, headers=headers)
 todo_list = json.loads(todo_list_url.text)
 
 if len(sys.argv) > 1:
-    todo_job_list = ['FLW20240805110138']
-else:
     todo_job_list = []
+else:
+    todo_job_list = ['FLW20241016263206']
 
 for i in todo_list.get('data').get('list'):
     taskId = i.get('taskId')
