@@ -247,8 +247,8 @@ for i in todo_list.get('data').get('records'):
                                             "opinion": "不同意 供应商不能申请数据库账号。"}
                         disagree_payload = json.dumps(disagree_payload)
                         disagree_fuc()
-                    if is_8_digit_number(accountName):
-                        if accountName != userAccount:
+                    if is_8_digit_number(accountName) or accountName == 'rrs_bigdata':
+                        if is_8_digit_number(accountName) and accountName != userAccount:
                             disagree_payload = {"instanceId": "" + instId + "",
                                                 "taskId": "" + taskId + "",
                                                 "actionName": "unPass",
