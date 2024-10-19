@@ -171,7 +171,7 @@ for i in todo_list.get('data').get('list'):
         elif 'v8z52br84u9zorvskoz4' in db_name:
             db = 'wccyr'
             db_type = 'mysql'
-        elif '4897' in db_name:
+        elif '4897' in db_name or '10.246.82.162' in db_name:
             db = 'zlb'
             db_type = 'mysql'
         elif 'kxorder' in db_name:
