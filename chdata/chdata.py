@@ -180,6 +180,9 @@ for i in todo_list.get('data').get('list'):
         elif '10.246.2.96' in db_name:
             db = 'xyc_mycat96'
             db_type = 'mysql'
+        elif 'hlcp' in db_name:
+            db = 'rmdb5722_master'
+            db_type = 'mysql'
         elif 'm5ev2c955pn291133' in db_name:
             db = 'wlhy'
             db_type = 'mysql'
